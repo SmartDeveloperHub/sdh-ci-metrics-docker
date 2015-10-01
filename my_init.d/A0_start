@@ -1,8 +1,8 @@
 #!/bin/sh
-if [ -z "$CI_METRICS_VERSION" ]; then    
-    /usr/lib/metrics/.env/bin/pip install --upgrade SDH-CI-Metrics
+if [ -z "$CI_METRICS_VERSION" ]; then
+	/usr/lib/metrics/.env/bin/pip install --upgrade SDH-CI-Metrics
 else
-	/usr/lib/agora/.env/bin/pip install --upgrade SDH-CI-Metrics==$CI_METRICS_VERSION
+	/usr/lib/metrics/.env/bin/pip install --upgrade SDH-CI-Metrics==$CI_METRICS_VERSION
 fi
 
-/usr/lib/agora/.env/bin/sdh-ci-metrics &
+/usr/lib/metrics/.env/bin/sdh-ci-metrics &
