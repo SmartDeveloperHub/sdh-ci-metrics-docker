@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ -z "$CI_METRICS_VERSION" ]; then
-	/usr/lib/metrics/.env/bin/pip install SDH-CI-Metrics
+	/usr/lib/metrics/.env/bin/pip install --upgrade SDH-CI-Metrics
 else
 	/usr/lib/metrics/.env/bin/pip install --upgrade SDH-CI-Metrics==$CI_METRICS_VERSION
 fi
