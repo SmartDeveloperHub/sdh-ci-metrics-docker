@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+import requests
+import time
+
+
+def post_seed(ty, uri):
+	response = requests.post('http://138.4.249.224:9009/seeds', json={'type': ty, 'uri': uri})
+	print 'Load {} seed: {}'.format(ty, response.status_code)
+
+connected = False
+count = 0
+while not connected:
+	try:
+		post_seed('metrics:MetricService', 'http://138.4.249.224:9004/ci/api')
+		post_seed('views:ViewService', 'http://138.4.249.224:9004/ci/api')
+		connected = True
+	except Exception:
+                count += 1
+                if count > 5:
+                      break
+		time.sleep(1)
